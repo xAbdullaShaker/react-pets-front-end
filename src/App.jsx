@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import * as petservice from './services/petService'
+import * as petService from './services/petService'
 import PetDetail from "./components/PetDetail/PetDetail";
 import PetList from "./components/PetList/PetList";
 import PetForm from "./components/PetForm/PetForm"
@@ -25,8 +25,8 @@ const App = () => {
   }
 
   const handleAddPet = async (formData) => {
-    // await petService.create()
-    console.log(formData)
+    await petService.create(formData)
+    // console.log(formData)
   }
 
   return (

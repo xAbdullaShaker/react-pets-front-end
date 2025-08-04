@@ -17,9 +17,9 @@ const PetForm = (props) => {
     }
 
 const handleSubmit = (evt) => {
-    evt.preventfault()
-    prototypejs.handleAddPet(formData)
-    setFormData(intialState)
+    evt.preventDefault()
+    props.handleAddPet(formData)
+    setFormData(initialState)
 }
 
     return (
@@ -27,15 +27,15 @@ const handleSubmit = (evt) => {
             <h1>Pet Form</h1>
             <form onSubmit={handleSubmit}>
                 <label htmlFor= "name">Name</label>
-                <input type= "text" name="name" id="name"
+                <input type= "text" name="name" id="name" value={formData.name}
                 onChange= {handleChange}/>
 
-                 <label htmlFor= "age">Name</label>
-                <input type= "text" name="age" id="age"
+                 <label htmlFor= "age">Age</label>
+                <input type= "text" name="age" id="age" value={formData.age}
                 onChange= {handleChange}/>
 
-                 <label htmlFor= "breed">Name</label>
-                <input type= "text" name="breed" id="breed"
+                 <label htmlFor= "breed">Breed</label>
+                <input type= "text" name="breed" id="breed" value={formData.breed}
                 onChange= {handleChange}/>  
                 <button type="submit">Add Pet</button>
                 </form>

@@ -9,9 +9,18 @@ const index = async () => {
     }
 }
 
-const create = async() => {
+const create = async (formData) => {
+    console.log(formData)
     try {
-
+         const res = await fetch(BASE_URL, {
+         method: 'POST',
+         headers: {
+            'Content-Type': 'application/json',
+         },
+         body: JSON.stringify(formData)
+         })
+       
+        
     } catch { (err) 
         console.log(err)
 
