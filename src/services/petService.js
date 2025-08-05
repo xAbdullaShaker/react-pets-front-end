@@ -60,5 +60,5 @@ export {
     index,
     create,
     update,
-    delete,
+    deletePet,
 }
