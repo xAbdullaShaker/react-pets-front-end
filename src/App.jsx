@@ -25,17 +25,37 @@ const App = () => {
   }
 
   const handleAddPet = async (formData) => {
-    await petService.create(formData)
+   const newPet = await petService.create(formData)
+   setPets([newPet, ...pets])
     // console.log(formData)
   }
+  
+  const handleUpdatePet = async (formData, petId) => {
+    const updatedPet = await petService.update(formData, petId)
+    console.log(updatedPet)
+  }
+
+const handleDeletePet = async (petId) => {
+  try {
+    await petService.deletePet(petId)
+    setPets(pets.filter((pet) => pet._id !== petId))
+    setSelected(null)
+  } catch (err) {
+    console.log("Error deleting pet:", err)
+  }
+}
 
   return (
     <>
       <PetList pets={pets} handleSelect={handleSelect} />
       <hr />
-      <PetForm handleAddPet={handleAddPet} />
+      <PetForm selected={selected} 
+        handleAddPet={handleAddPet} 
+        handleUpdatePet={handleUpdatePet}
+        setSelected={setSelected} />
       <hr />
-      <PetDetail selected={selected} />
+      <PetDetail selected={selected} 
+        handleDeletePet={handleDeletePet} />
     </>
   )
 }

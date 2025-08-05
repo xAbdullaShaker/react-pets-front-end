@@ -1,3 +1,5 @@
+// the input + submit form 
+
 import { prototypejs } from "globals"
 import { useState } from "react"
  
@@ -37,7 +39,7 @@ const handleSubmit = (evt) => {
                  <label htmlFor= "breed">Breed</label>
                 <input type= "text" name="breed" id="breed" value={formData.breed}
                 onChange= {handleChange}/>  
-                <button type="submit">Add Pet</button>
+                <button type="submit">{props.selected ? 'Update Pet' : 'Add New Pet'}</button>
                 </form>
             
         </>
